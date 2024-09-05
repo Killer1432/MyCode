@@ -1,0 +1,36 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package pkg02handout;
+import java.util.Scanner;
+/**
+ *
+ * @author Jo-an Enriquez
+ */
+public class Main {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+    Scanner scr = new Scanner(System.in);
+    System.out.println("Enter the First Number: ");
+    double num1 = scr.nextDouble();
+    System.out.println("Enter the Second Number: ");
+    double num2 = scr.nextDouble();
+    
+    if (num1 > num2){
+        System.out.println("The first number is greater than the second number.");
+    }
+    else if (num1 < num2){
+        System.out.println("The first number is less than the second number.");
+    }
+    else if (num1 == num2){
+        System.out.println("The number is Equal.");
+    }
+    
+    }
+    
+}
