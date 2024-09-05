@@ -1,0 +1,111 @@
+// File: RunSavingsAccount.java
+import java.util.Scanner;
+
+public class RunSavingsAccount {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Step 1: Ask for the interest rate
+        System.out.print("Enter the interest rate : ");
+        double interestRate = scanner.nextDouble();
+        SavingsAccount.setInterestRate(interestRate);
+
+        // Step 2: Create a SavingsAccount object
+        SavingsAccount savings = new SavingsAccount();
+
+        // Step 3: Ask for the initial deposit
+        System.out.println("Enter deposit amount: ");
+        double depositAmount = scanner.nextDouble();
+        savings.deposit(depositAmount);
+         System.out.printf("your balance is %.1f%n",depositAmount);
+        
+
+        String choice;
+        do {
+            // Step 4: Ask for deposit or withdraw
+            System.out.println("Press D for another deposit, or W to withdraw, or Q to quit: ");
+            choice = scanner.next().toUpperCase();
+            
+            if (choice.equals("D")) {
+                System.out.print("Enter the amount to deposit: ");
+                depositAmount = scanner.nextDouble();
+                savings.deposit(depositAmount);
+            } else if (choice.equals("W")) {
+                System.out.print("Enter the amount to withdraw: ");
+                double withdrawAmount = scanner.nextDouble();
+                double withdrawn = savings.withdraw(withdrawAmount);
+                if (withdrawn == 0) {
+                    System.out.println("Insufficient funds!");
+                }
+            } else if (!choice.equals("Q")) {
+                System.out.println("Invalid choice!");
+            }
+
+            // Show balance
+            SavingsAccount.showBalance(savings);
+            
+            // Step 5: Apply interest if balance > 1000
+            if (savings.getBalance() > 1000) {
+                savings.addInterest();
+                System.out.println("Interest applied.");
+                SavingsAccount.showBalance(savings);
+            }
+
+        } while (!choice.equals("Q")); // User can exit by pressing 'Q'
+
+        scanner.close();
+    }
+}
+// File: SavingsAccount.java
+ class SavingsAccount {
+    private double balance;
+    public static double interestRate = 0;
+
+    // Constructor to initialize balance
+    public SavingsAccount() {
+        this.balance = 0;
+    }
+
+    // Static setter method to set interest rate
+    public static void setInterestRate(double newRate) {
+        interestRate = newRate;
+    }
+
+    // Static method to get interest rate
+    public static double getInterestRate() {
+        return interestRate;
+    }
+
+    // Non-static method to get balance
+    public double getBalance() {
+        return balance;
+    }
+
+    // Method to deposit an amount
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        }
+    }
+
+    // Method to withdraw an amount
+    public double withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            return amount;
+        } else {
+            return 0;
+        }
+    }
+
+    // Method to add interest
+    public void addInterest() {
+        double interest = balance * interestRate;
+        balance += interest;
+    }
+
+    // Static method to show balance
+    public static void showBalance(SavingsAccount account) {
+        System.out.printf("Your new balance is: %.1f%n", account.getBalance());
+    }
+}
