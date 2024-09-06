@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+/**
+ *
+ * @author Jo-an Enriquez
+ */
+public class KirbyJava {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+    
+         Scanner scanner = new Scanner (System.in);
+        int choice;
+  
+        System.out.println("Enter three first  name:");
+        String firstName = scanner.nextLine(); 
+        String secondName = scanner.nextLine();
+       String thirdName= scanner.nextLine();
+        System.out.println("Possible names are:");
+         System.out.println("1-"+firstName + secondName);
+         System.out.println("2 -"+ firstName + thirdName);
+          System.out.println("3 -"+ secondName + firstName);
+           System.out.println("4 -"+ secondName + thirdName);
+            System.out.println("5 -"+ thirdName + firstName);
+             System.out.println("6 -"+ thirdName + secondName);
+             
+              System.out.println("Enter 1-6 to select a name");
+             choice = scanner.nextInt();
+            
+             
+                if (choice==1){
+                     System.out.println("The initials for " +firstName +" "+ secondName +" is "+ firstName.charAt(0)+secondName.charAt(0));
+                     System.out.println("Suggested username: "+firstName.toLowerCase()+"_"+secondName.toLowerCase());
+                }
+                    else if (choice==2){
+                     System.out.println("The initials for " +firstName +" "+ thirdName +" is "+ firstName.charAt(0)+thirdName.charAt(0));
+                     System.out.println("Suggested username: "+firstName.toLowerCase()+"_"+thirdName.toLowerCase());
+                    }
+                     else if (choice==3){
+                         System.out.println("The initials for " +secondName +" "+ firstName +" is "+ secondName.charAt(0)+firstName.charAt(0));
+                     System.out.println("Suggested username: "+secondName.toLowerCase()+"_"+firstName.toLowerCase());
+                     }
+                     else if (choice==4){
+                         System.out.println("The initials for " +secondName +" "+ thirdName +" is "+ secondName.charAt(0)+thirdName.charAt(0));
+                     System.out.println("Suggested username: "+secondName.toLowerCase()+"_"+thirdName.toLowerCase());
+                     }
+                     else if (choice==5){
+                         System.out.println("The initials for " +thirdName +" "+ firstName +" is "+ thirdName.charAt(0)+firstName.charAt(0));
+                     System.out.println("Suggested username: "+thirdName.toLowerCase()+"_"+firstName.toLowerCase());
+                     }
+                     else if (choice==6){
+                         System.out.println("The initials for " +thirdName +" "+ secondName +" is "+ thirdName.charAt(0)+secondName.charAt(0));
+                     System.out.println("Suggested username: "+thirdName.toLowerCase()+"_"+secondName.toLowerCase());
+                     }
+
+             }     
+    }

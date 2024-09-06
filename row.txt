@@ -1,0 +1,65 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package array;
+import java.util.Scanner;
+/**
+ *
+ * @author Jo-an Enriquez
+ */
+public class Array {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+    
+System.out.println("Bus Seat Reservation: ");
+        
+        String[][] reserve =
+        {
+            {"","Col 1","Col 2","Col 3","Col 4"},
+            {"Row 1", " |* ", " * ", " * ", " * "},
+            {"Row 2", " |* ", " * ", " * ", " * "},
+            {"Row 3", " |* ", " * ", " * ", " * "},
+            {"Row 4", " |* ", " * ", " * ", " * "},
+            {"Row 5", " |* ", " * ", " * ", " * "},
+            {"Row 6", " |* ", " * ", " * ", " * "},
+            {"Row 7", " |* ", " * ", " * ", " * "},
+            {"Row 8", " |* ", " * ", " * ", " * "},
+            {"Row 9", " |* ", " * ", " * ", " * "},
+            {"Row 10", " |* ", " * ", " * ", " * "},
+        };
+        int row1;
+        int col1;
+        do
+        {
+            for (int row =0; row < reserve.length; row++)
+            {
+                for (int col = 0; col < reserve[row].length; col++)
+                {
+                    System.out.print(reserve[row][col] + "\t");
+                }
+                System.out.println();
+            }
+            Scanner scan = new Scanner (System.in);
+            System.out.print ("Enter row and column to reserve separated by space");
+            System.out.print(" (Enter a negative number to exit): ");
+            
+            row1 = scan.nextInt();
+            if (row1 == -1) break;
+            
+            col1 = scan.nextInt();
+            
+            if (reserve [row1][col1] != "X") reserve [row1][col1] = " X ";
+            
+            else System.out.println("Seat is already reserved!");
+        }
+        while (row1 != -1);
+        
+            System.out.println("Program Exit!");
+    
+    }
+    }
