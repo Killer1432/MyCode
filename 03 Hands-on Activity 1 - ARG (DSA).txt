@@ -1,0 +1,62 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package songdemo;
+
+import java.util.LinkedList;
+
+/**
+ *
+ * @author Jo-an Enriquez
+ */
+public class SongDemo {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+      
+        //Using NetBeans, create three (3) linked lists named songs, artists, and playlist. You may refer to the sample codes in this module. 
+   LinkedList<String> songs = new LinkedList();
+   LinkedList<String> artists = new LinkedList();
+   LinkedList<String> playlist = new LinkedList();
+   
+   //Add five (5) song titles to the first linked list.
+songs.add("We Belong Together,");
+        songs.add("Million Reasons,");
+songs.add("The Climb,");
+songs.add("Who You Are,");
+songs.add("A Woman's Worth");
+ 
+// add the five (5) singers/bands of those songs to the second linked list.
+artists.add("Mariah Carey,");
+artists.add("Lady Gaga,");
+artists.add("Miley Cyrus,");
+artists.add("Jessie J,");
+artists.add("Alicia Keys");
+ 
+//Combine the first two (2) linked lists and add each combination to the third linked list, which is playlist.
+for (int i = 0; i < songs.size(); i++) {
+            String combined =  songs.get(i) + " - " + artists.get(i);
+            playlist.add(combined);
+        }
+
+//Display the content of the three (3) linked lists in separate lines. See sample output below.
+System.out.println("The Song: ");
+for(String song : songs){
+    System.out.print(song);
+}
+System.out.println(" ");
+    System.out.println("The Artists: ");
+for (String artist : artists){
+    System.out.print(artist);
+}
+System.out.println(" ");
+for (String play : playlist){
+    System.out.println(play);
+}
+    }
+    
+}
