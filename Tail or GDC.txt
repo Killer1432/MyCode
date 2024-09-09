@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class TailRecursionGCD {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Input two numbers from the user
+        System.out.println("Enter the first number: ");
+        int num1 = scanner.nextInt();
+        System.out.println("Enter the second number: ");
+        int num2 = scanner.nextInt();
+        
+        // Calculate and print the GCD using tail recursion
+        int gcd = gcd(num1, num2);
+        System.out.println("The GCD of " + num1 + " and " + num2 + " is: " + gcd);
+    }
+
+    // Tail-recursive method to calculate GCD
+    private static int gcd(int a, int b) {
+        // Base case
+        if (b == 0) {
+            return a;
+        }
+        // Tail call
+        return gcd(b, a % b);
+    }
+}
