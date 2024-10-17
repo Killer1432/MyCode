@@ -1,0 +1,47 @@
+class Exam {
+    String message = "Good Luck"; 
+    String period;
+    String level;
+    
+    public Exam(String period, String level) {
+        this.period = period;
+        this.level = level;
+    }
+    
+    public double getPrice(double price) {
+        return price;
+    }
+    
+    public static boolean isFinished(int status) {
+        if (status >= 100 && status <= 100) {
+            return true;
+        }
+        return false;
+    }
+}
+
+class Midterm extends Exam {
+    
+    public Midterm(String period, String level) {
+        super(period, level); 
+        System.out.println("Exam has started");
+    }
+}
+
+class Quiz {
+    
+}
+
+class Essay extends Quiz {
+    
+}
+
+public class Main {
+    public static void main(String[] args) {
+   
+        Midterm midterm = new Midterm("Second Period", "Level 1");
+        System.out.println(midterm.message); 
+        
+        System.out.println(Exam.isFinished(100)); 
+    }
+}
